@@ -14,8 +14,8 @@ const fib = (index) => {
   return fib(index - 1) + fib(index - 2)
 }
 
+// channel will be 'insert' as we use .publish with the 'insert' channel in server/index.js, and message will be the new number to calculate.
 sub.on('message', (channel, message) => {
-  // channel will be 'insert' as we use .publish with the 'insert' channel in server/index.js, and message will be the new number to calculate.
   redisClient.hset('values', message, fib(parseInt(message)))
 })
 
