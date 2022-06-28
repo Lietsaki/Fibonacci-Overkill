@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  # Create an image with the dev build of our react app (we can't test the prod one as it's an nginx server hosting built assets, it has no npm)
+  # Create an image with the dev build of our react app (we can't test the prod one as it's an nginx server hosting built assets)
   - docker build -t ricardosandez/react-test -f ./client/Dockerfile.dev ./client
 
 script:
